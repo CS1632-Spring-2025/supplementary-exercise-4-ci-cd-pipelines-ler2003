@@ -13,11 +13,14 @@ public interface Cat {
 			case SOLUTION:
 				return new CatSolution(id, name);
 			case MOCK:
-			    // TODO: Return a mock object that emulates the behavior of a real object.
-				return null;
+			    Cat mockCat = mock(Cat.class);
+				when(mockCat.getId()).thenReturn(id);
+				when(mockCat.getName()).thenReturn(name);
+				when(mockCat.getRented()).thenReturn(false);
+				when(mockCat.toString()).thenReturn("ID " + id + ". " + name);
+				return mockCat;
 			default:
-				assert(false);
-				return null;
+				throw new IllegalArgumentException("Invalid InstanceType: " + type);
 		}
 	}
 
