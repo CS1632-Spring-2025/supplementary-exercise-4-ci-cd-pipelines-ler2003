@@ -55,11 +55,11 @@ jobs:
   update_dependence_graph:
 
     needs: [maven_test]
-    
+
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
 
     steps:
 
